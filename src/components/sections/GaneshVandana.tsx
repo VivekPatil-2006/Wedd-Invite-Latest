@@ -202,7 +202,7 @@ export default function GaneshVandana() {
                 -mt-2
                 "
               >
-                ↓
+                
               </span>
             </div>
           </motion.div>
