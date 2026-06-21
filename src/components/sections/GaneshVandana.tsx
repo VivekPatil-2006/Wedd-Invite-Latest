@@ -147,6 +147,70 @@ export default function GaneshVandana() {
           </p>
         </div>
       </motion.div>
+
+      <motion.div
+  initial={{ opacity: 0 }}
+  animate={{
+    opacity: 1,
+    y: [0, 12, 0],
+  }}
+  transition={{
+    duration: 1.5,
+    repeat: Infinity,
+  }}
+  className="
+  absolute
+  bottom-8
+  left-1/2
+  -translate-x-1/2
+  z-20
+  flex
+  flex-col
+  items-center
+  "
+>
+  <span
+    className="
+    text-[#7b1c2a]
+    text-xs
+    md:text-sm
+    tracking-[4px]
+    uppercase
+    "
+  >
+    Scroll
+  </span>
+
+  <div
+    className="
+    mt-2
+    w-7
+    h-12
+    border-2
+    border-[#7b1c2a]
+    rounded-full
+    flex
+    justify-center
+    "
+  >
+    <motion.div
+      animate={{
+        y: [0, 16, 0],
+      }}
+      transition={{
+        duration: 1.5,
+        repeat: Infinity,
+      }}
+      className="
+      w-1.5
+      h-1.5
+      mt-2
+      rounded-full
+      bg-[#7b1c2a]
+      "
+    />
+  </div>
+</motion.div>
     </section>
   );
 }
