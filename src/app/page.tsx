@@ -7,22 +7,28 @@ import MainInvitation from "../components/sections/MainInvitation";
 
 import FloatingPetals from "../components/effects/FloatingPetals";
 import FloatingDaisies from "../components/effects/FloatingDaisies";
-
-import MusicPlayer from "../components/comman/MusicPlayer";
 import Butterfly from "../components/effects/Butterfly";
 
+import MusicPlayer from "../components/comman/MusicPlayer";
+
 export default function Home() {
-  const [opened, setOpened] = useState(false);
+  const [opened, setOpened] =
+    useState(false);
 
   return (
     <>
       <FloatingPetals />
       <FloatingDaisies />
-      <MusicPlayer />
       <Butterfly />
 
+      <MusicPlayer />
+
       {!opened ? (
-        <LandingHero onOpen={() => setOpened(true)} />
+        <LandingHero
+          onOpen={() =>
+            setOpened(true)
+          }
+        />
       ) : (
         <MainInvitation />
       )}

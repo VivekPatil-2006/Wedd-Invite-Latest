@@ -1,14 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { FaVolumeUp, FaVolumeMute } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
 
 export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] =
+    useState(false);
 
-  const toggleAudio = () => {
+  const toggleMusic = () => {
     if (!audioRef.current) return;
 
     if (playing) {
@@ -20,6 +20,14 @@ export default function MusicPlayer() {
     setPlaying(!playing);
   };
 
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    audio.volume = 0.5;
+  }, []);
+
   return (
     <>
       <audio
@@ -29,24 +37,34 @@ export default function MusicPlayer() {
       />
 
       <button
-        onClick={toggleAudio}
+        onClick={toggleMusic}
         className="
         fixed
         bottom-6
         right-6
-        z-[999]
-        w-14
-        h-14
+        z-[9999]
+
+        w-16
+        h-16
+
         rounded-full
-        bg-[#5C0F14]
+
+        bg-[#8B1E2D]
         text-white
+
+        shadow-xl
+
         flex
         items-center
         justify-center
-        shadow-lg
+
+        text-2xl
+
+        hover:scale-110
+        transition
         "
       >
-        {playing ? <FaVolumeUp /> : <FaVolumeMute />}
+        {playing ? "🔊" : "🎵"}
       </button>
     </>
   );

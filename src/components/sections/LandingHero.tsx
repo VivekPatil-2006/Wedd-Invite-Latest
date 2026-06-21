@@ -9,12 +9,30 @@ interface Props {
 export default function LandingHero({
   onOpen,
 }: Props) {
+
   const handleOpen = () => {
+
+    // Start Music
+    const audio =
+      document.querySelector(
+        "audio"
+      ) as HTMLAudioElement | null;
+
+    if (audio) {
+      audio.play().catch(() => {});
+    }
+
+    // Envelope Animation
     const envelope =
-      document.getElementById("envelope");
+      document.getElementById(
+        "envelope"
+      );
 
-    envelope?.classList.add("open");
+    envelope?.classList.add(
+      "open"
+    );
 
+    // Open Invitation
     setTimeout(() => {
       onOpen();
     }, 1200);
@@ -43,22 +61,23 @@ export default function LandingHero({
       {/* Ganesh Idol */}
 
       <div
-  style={{
-    position: "absolute",
-    top: "40px",
-    left: "50%",
-    transform: "translateX(-50%)",
-    zIndex: 999,
-  }}
->
-  <Image
-    src="/assets/ganesh-idol.png"
-    alt="Ganesh"
-    width={120}
-    height={120}
-    priority
-  />
-</div>
+        style={{
+          position: "absolute",
+          top: "40px",
+          left: "50%",
+          transform:
+            "translateX(-50%)",
+          zIndex: 999,
+        }}
+      >
+        <Image
+          src="/assets/ganesh-idol.png"
+          alt="Ganesh"
+          width={120}
+          height={120}
+          priority
+        />
+      </div>
 
       {/* Envelope */}
 
@@ -70,15 +89,9 @@ export default function LandingHero({
         transition-transform
         duration-300
         hover:scale-105
+        mt-20
         "
       >
-        <div
-  id="envelope"
-  style={{
-    marginTop: "80px",
-  }}
-  onClick={handleOpen}
-></div>
         <Image
           src="/assets/envelope.png"
           alt="Wedding Invitation Envelope"
