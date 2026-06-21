@@ -184,9 +184,10 @@ export default function SaveTheDate() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "120px 20px",
+        padding: "90px 20px",
       }}
-    >
+    >        <h2>To Reveal Date</h2>
+
       <div
         style={{
           width: "700px",

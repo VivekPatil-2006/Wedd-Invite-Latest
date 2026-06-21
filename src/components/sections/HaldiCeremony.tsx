@@ -133,9 +133,7 @@ export default function WeddingCeremony() {
                 border
                 border-[#d8b26f]
                 bg-white/50
-                text-[#a85c1f]
                 font-semibold
-                tracking-[3px]
                 text-sm
                 md:text-base
                 "
@@ -291,7 +289,6 @@ export default function WeddingCeremony() {
                 bg-white/50
                 text-[#8B1E2D]
                 font-semibold
-                tracking-[3px]
                 text-sm
                 md:text-base
                 "
