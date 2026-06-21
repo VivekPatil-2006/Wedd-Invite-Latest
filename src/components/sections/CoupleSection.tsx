@@ -34,34 +34,9 @@ export default function CoupleSection() {
           text-center
         "
       >
-        {/* Groom */}
+        
 
-        <h2
-          className="
-          font-script
-          text-[#8B1E2D]
-          text-[70px] 
-          md:text-[110px]
-          "
-        >
-          Rupesh
-        </h2>
-
-        <p className="mt-4 text-lg text-[#5C0F14]">
-          S/o Mr. Rajendra Shinde & Mrs. Suvarna Shinde
-        </p>
-
-        <p className="italic text-[#7A5A5A] mt-2">
-          Grandson of Mr. Sarjerav Shinde
-        </p>
-
-        {/* WEDS */}
-
-        <div className="my-12">
-          <p className="font-script text-4xl text-[#5C0F14]">
-            weds
-          </p>
-        </div>
+        
 
         {/* Bride */}
 
@@ -82,6 +57,36 @@ export default function CoupleSection() {
 
         <p className="italic text-[#7A5A5A] mt-2">
           Granddaughter of Mr. Dhondiram Patil
+        </p>
+
+
+        {/* WEDS */}
+
+        <div className="my-12">
+          <p className="font-script text-4xl text-[#5C0F14]">
+            weds
+          </p>
+        </div>
+
+        {/* Groom */}
+
+        <h2
+          className="
+          font-script
+          text-[#8B1E2D]
+          text-[70px] 
+          md:text-[110px]
+          "
+        >
+          Rupesh
+        </h2>
+
+        <p className="mt-4 text-lg text-[#5C0F14]">
+          S/o Mr. Rajendra Shinde & Mrs. Suvarna Shinde
+        </p>
+
+        <p className="italic text-[#7A5A5A] mt-2">
+          Grandson of Mr. Sarjerao Shinde
         </p>
 
         {/* Shiva Parvati */}

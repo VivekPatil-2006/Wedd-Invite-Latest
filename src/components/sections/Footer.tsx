@@ -36,7 +36,7 @@ export default function Footer() {
           md:text-8xl
           "
         >
-          Rupesh &amp; Pranali
+          Pranali &amp; Rupesh
         </h2>
 
         <div className="text-5xl mt-8 mb-8">

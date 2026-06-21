@@ -74,6 +74,7 @@ export default function WeddingCeremony() {
                 text-[#c06d22]
                 italic
                 text-xl
+                bold
                 tracking-wide
                 "
               >
@@ -88,6 +89,7 @@ export default function WeddingCeremony() {
                 uppercase
                 text-[#b87333]
                 text-sm
+                bold
                 md:text-base
                 "
               >
@@ -243,6 +245,7 @@ export default function WeddingCeremony() {
                 uppercase
                 text-[#8B1E2D]
                 text-sm
+                bold
                 md:text-base
                 "
               >
@@ -293,32 +296,9 @@ export default function WeddingCeremony() {
                 md:text-base
                 "
               >
-                20 JULY 2026 | 06:00 PM
+                19 JULY 2026 | 01:37 PM
               </div>
 
-              {/* Schedule */}
-              <div
-                className="
-                mt-8
-                max-w-xs
-                mx-auto
-                rounded-[24px]
-                bg-white/50
-                backdrop-blur-sm
-                px-5
-                py-4
-                text-[#6b3f3f]
-                text-sm
-                border-white/30
-                "
-              >
-                <span className="block font-medium tracking-wide">
-                  ✨ Sapthapadi: 7 sacred vows
-                </span>
-                <span className="block text-xs italic mt-1">
-                  03:48 PM · floral mandap
-                </span>
-              </div>
             </div>
 
             {/* Couple Image */}

@@ -22,7 +22,10 @@ export default function VenueSection() {
           laughter and forever.
         </p>
 
+
         <br/><br/>
+        <h3>Place: Kautika Palace, Khanapur, Sangli</h3>
+        <br/>
         <div
           className="
           glass-card

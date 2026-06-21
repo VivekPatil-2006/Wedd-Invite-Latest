@@ -56,54 +56,57 @@ export default function GaneshVandana() {
           />
         </div>
 
-        {/* Ganesh Mantra */}
-
+        {/* Single unified blurred overlay box */}
         <div
           className="
-          inline-block
-          bg-white/80
-          px-8
-          py-3
-          rounded-full
+          bg-white/30
+          backdrop-blur-xl
+          rounded-[28px]
           border
-          shadow-lg
-          "
-        >
-          <p
-            className="
-            font-title
-            text-[#7b1c2a]
-            tracking-[3px]
-            text-sm
-            md:text-base
-            "
-          >
-            || OM SHREE GANESHAYA NAMAH ||
-          </p>
-        </div>
-
-        {/* Shloka Card */}
-
-        <div
-          className="
-          mt-8
-          bg-white/85
-          backdrop-blur-sm
-          rounded-[24px]
-          p-8
           border-[#d4af37]
           shadow-xl
+          px-6
+          py-10
+          md:px-12
+          md:py-12
           "
         >
-          <br/>
+          {/* Ganesh Mantra */}
+          <div
+            className="
+            inline-block
+            bg-white/80
+            px-8
+            py-3
+            rounded-full
+            border
+            border-[#d4af37]
+            shadow-lg
+            "
+          >
+            <p
+              className="
+              font-title
+              text-[#7b1c2a]
+              tracking-[3px]
+              text-sm
+              md:text-base
+              "
+            >
+              || OM SHREE GANESHAYA NAMAH ||
+            </p>
+          </div>
+
+          {/* Shloka */}
           <h2
             className="
+            mt-8
             text-[#5C0F14]
             text-2xl
             md:text-3xl
             leading-loose
             "
-          >
+          > <br/>
             मङ्गलं भगवान विष्णुः
             <br />
             मङ्गलं गरुडध्वजः ।
@@ -121,26 +124,22 @@ export default function GaneshVandana() {
             text-base
             md:text-lg
             "
-          >
-            <br/>
+          ><br/>
             Mangalam Bhagwan Vishnu · Mangalam Garudadhwajah
             <br />
             Mangalam Pundarikakshah · Mangalaya Tano Harih
           </p>
-        </div>
 
-        {/* Invitation Text */}
-
-        <div className="mt-10">
+          {/* Invitation Text */}
           <p
             className="
+            mt-10
             text-[#6a4a4a]
             text-lg
             md:text-2xl
             leading-relaxed
             "
-          >
-            <br/>
+          ><br/>
             We request the honor of your gracious presence
             <br />
             on the auspicious occasion of the wedding
