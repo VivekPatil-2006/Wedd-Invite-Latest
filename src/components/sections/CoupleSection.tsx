@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function CoupleSection() {
   return (
-    <section className="relative min-h-screen py-16 sm:py-24 px-4 overflow-hidden">
+    <section className="relative py-8 sm:py-10 px-4 overflow-hidden">
       {/* Background */}
 
       <div className="absolute inset-0 opacity-20">
@@ -29,8 +29,8 @@ export default function CoupleSection() {
           mx-auto
           glass-card
           rounded-[32px]
-          p-10
-          md:p-16
+          p-8
+          md:p-12
           text-center
         "
       >
@@ -62,7 +62,7 @@ export default function CoupleSection() {
 
         {/* WEDS */}
 
-        <div className="my-12">
+        <div className="my-8">
           <p className="font-script text-4xl text-[#5C0F14]">
             weds
           </p>
@@ -90,7 +90,7 @@ export default function CoupleSection() {
 
         {/* Shiva Parvati */}
 
-        <div className="mt-16 flex justify-center">
+        <div className="mt-10 flex justify-center">
           <Image
             src="/assets/g-shiva-parvati.png"
             alt="Shiva Parvati"

@@ -371,3 +371,8 @@ iframe {
 .venue{
   color: #b45b14;
 }
+
+.venueStyle{
+  color: #b45b14;
+  font-weight: bold;
+}

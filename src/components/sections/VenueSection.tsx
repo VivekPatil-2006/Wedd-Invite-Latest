@@ -67,7 +67,7 @@ export default function VenueSection() {
           px-6
           py-3
           rounded-full
-          bg-[#C4873B]
+          bg-[#FFFFFF]
           text-white
           font-title
           tracking-[1px]
@@ -79,6 +79,7 @@ export default function VenueSection() {
           transition-all
           duration-300
           no-underline
+          venueStyle
           "
         >
           <svg

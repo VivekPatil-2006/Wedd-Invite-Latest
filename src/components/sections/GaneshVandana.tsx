@@ -159,8 +159,9 @@ export default function GaneshVandana() {
             leading-relaxed
             max-w-2xl
             mx-auto
+            bold
             "
-          >
+          ><br/>
             We request the honor of your gracious presence
             <br />
             on the auspicious occasion of the wedding

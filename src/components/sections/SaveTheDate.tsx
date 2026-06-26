@@ -186,7 +186,7 @@ export default function SaveTheDate() {
         justifyContent: "center",
         fontFamily: "serif",
         color: "brown",
-        padding: "70px 20px",
+        padding: "50px 20px",
       }}
     >
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-title tracking-[4px] text-[#8B1E2D]">
