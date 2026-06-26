@@ -43,51 +43,54 @@ export default function SaveTheDate() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Internal drawing resolution (kept fixed for crisp rendering)
-    const width = 700;
-    const height = 220;
-
-    canvas.width = width;
-    canvas.height = height;
+    const dpr = window.devicePixelRatio || 1;
+    let drawing = false;
 
     const draw = () => {
+      const rect = canvas.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.globalCompositeOperation = "source-over";
+
       const gradient = ctx.createLinearGradient(0, 0, width, height);
       gradient.addColorStop(0, "#dcb06c");
       gradient.addColorStop(1, "#bf8c44");
 
-      ctx.globalCompositeOperation = "source-over";
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
 
       ctx.fillStyle = "#fff";
-      ctx.font = "bold 34px serif";
+      ctx.font = "bold 28px serif";
       ctx.textAlign = "center";
-      ctx.fillText("✦ SCRATCH HERE ✦", width / 2, height / 2 + 10);
+      ctx.textBaseline = "middle";
+      ctx.fillText("✦ SCRATCH HERE ✦", width / 2, height / 2);
     };
 
-    draw();
+    const resizeCanvas = () => {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+      draw();
+    };
 
-    let drawing = false;
-
-    // Converts a client (viewport) coordinate into canvas-internal pixel coordinates,
-    // accounting for the difference between the canvas's CSS display size and its
-    // internal drawing resolution (this is what was broken on mobile).
     const getPos = (clientX: number, clientY: number) => {
       const rect = canvas.getBoundingClientRect();
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
-
       return {
-        x: (clientX - rect.left) * scaleX,
-        y: (clientY - rect.top) * scaleY,
+        x: clientX - rect.left,
+        y: clientY - rect.top,
       };
     };
 
     const scratch = (x: number, y: number) => {
       ctx.globalCompositeOperation = "destination-out";
       ctx.beginPath();
-      ctx.arc(x, y, 45, 0, Math.PI * 2);
+      ctx.arc(x, y, 35, 0, Math.PI * 2);
       ctx.fill();
+      ctx.closePath();
 
       const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
       let transparent = 0;
@@ -111,68 +114,41 @@ export default function SaveTheDate() {
       }
     };
 
-    // --- Mouse handlers ---
-    const onMouseDown = (e: MouseEvent) => {
+    const onPointerDown = (e: PointerEvent) => {
       drawing = true;
+      canvas.setPointerCapture(e.pointerId);
       const pos = getPos(e.clientX, e.clientY);
       scratch(pos.x, pos.y);
     };
 
-    const onMouseUp = () => {
-      drawing = false;
-    };
-
-    const onMouseMove = (e: MouseEvent) => {
+    const onPointerMove = (e: PointerEvent) => {
       if (!drawing) return;
       const pos = getPos(e.clientX, e.clientY);
       scratch(pos.x, pos.y);
     };
 
-    // --- Touch handlers ---
-    const onTouchStart = (e: TouchEvent) => {
-      e.preventDefault(); // stop the page from scrolling while scratching
-      drawing = true;
-      const touch = e.touches[0];
-      if (!touch) return;
-      const pos = getPos(touch.clientX, touch.clientY);
-      scratch(pos.x, pos.y);
-    };
-
-    const onTouchEnd = (e: TouchEvent) => {
-      e.preventDefault();
+    const endDrawing = (e: PointerEvent) => {
       drawing = false;
+      canvas.releasePointerCapture?.(e.pointerId);
     };
 
-    const onTouchMove = (e: TouchEvent) => {
-      if (!drawing) return;
-      e.preventDefault(); // critical: prevents scroll-hijacking on mobile
-      const touch = e.touches[0];
-      if (!touch) return;
-      const pos = getPos(touch.clientX, touch.clientY);
-      scratch(pos.x, pos.y);
-    };
+    const resizeObserver = new ResizeObserver(resizeCanvas);
+    resizeObserver.observe(canvas);
+    resizeCanvas();
 
-    canvas.addEventListener("mousedown", onMouseDown);
-    canvas.addEventListener("mouseup", onMouseUp);
-    canvas.addEventListener("mouseleave", onMouseUp);
-    canvas.addEventListener("mousemove", onMouseMove);
-
-    // passive: false is required so preventDefault() actually works on touch events
-    canvas.addEventListener("touchstart", onTouchStart, { passive: false });
-    canvas.addEventListener("touchend", onTouchEnd, { passive: false });
-    canvas.addEventListener("touchcancel", onTouchEnd, { passive: false });
-    canvas.addEventListener("touchmove", onTouchMove, { passive: false });
+    canvas.addEventListener("pointerdown", onPointerDown);
+    canvas.addEventListener("pointermove", onPointerMove);
+    canvas.addEventListener("pointerup", endDrawing);
+    canvas.addEventListener("pointerleave", endDrawing);
+    canvas.addEventListener("pointercancel", endDrawing);
 
     return () => {
-      canvas.removeEventListener("mousedown", onMouseDown);
-      canvas.removeEventListener("mouseup", onMouseUp);
-      canvas.removeEventListener("mouseleave", onMouseUp);
-      canvas.removeEventListener("mousemove", onMouseMove);
-
-      canvas.removeEventListener("touchstart", onTouchStart);
-      canvas.removeEventListener("touchend", onTouchEnd);
-      canvas.removeEventListener("touchcancel", onTouchEnd);
-      canvas.removeEventListener("touchmove", onTouchMove);
+      canvas.removeEventListener("pointerdown", onPointerDown);
+      canvas.removeEventListener("pointermove", onPointerMove);
+      canvas.removeEventListener("pointerup", endDrawing);
+      canvas.removeEventListener("pointerleave", endDrawing);
+      canvas.removeEventListener("pointercancel", endDrawing);
+      resizeObserver.disconnect();
     };
   }, []);
 
@@ -256,6 +232,7 @@ export default function SaveTheDate() {
       {/* Timer */}
       {revealed && (
         <>
+          <br/>
           <div className="flex flex-wrap justify-center gap-8 mt-16">
             {[
               ["DAYS", timeLeft.days],
