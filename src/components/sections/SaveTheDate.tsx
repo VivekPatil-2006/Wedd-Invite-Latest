@@ -188,7 +188,7 @@ export default function SaveTheDate() {
         color: "brown",
         padding: "50px 20px",
       }}
-    >
+    > <br/>
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-title tracking-[4px] text-[#8B1E2D]">
         To Reveal Date
       </h2>
