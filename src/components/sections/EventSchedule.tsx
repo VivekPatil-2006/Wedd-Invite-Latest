@@ -14,7 +14,7 @@ export default function EventSchedule() {
         tracking-[6px]
         leading-tight
         "
-      ><br/>
+      ><br/><br/><br/>
         EVENTS SCHEDULE
       </h2>
 
