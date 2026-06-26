@@ -62,7 +62,7 @@ export default function SaveTheDate() {
       ctx.fillStyle = "#fff";
       ctx.font = "bold 34px serif";
       ctx.textAlign = "center";
-      ctx.fillText("✦ SCRATCH TO REVEAL ✦", width / 2, height / 2 + 10);
+      ctx.fillText("✦ SCRATCH HERE ✦", width / 2, height / 2 + 10);
     };
 
     draw();
@@ -189,9 +189,9 @@ export default function SaveTheDate() {
         padding: "50px 20px",
       }}
     > <br/>
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-title tracking-[4px] text-[#8B1E2D]">
-        To Reveal Date
-      </h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-title tracking-[4px] text-[#8B1E2D]">
+  To Reveal Date
+</h2>
 
       <div
         style={{

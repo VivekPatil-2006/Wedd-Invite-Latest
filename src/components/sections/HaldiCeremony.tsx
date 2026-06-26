@@ -103,7 +103,7 @@ export default function HaldiCeremony() {
                 haldi
                 "
               >
-                19 JULY 2026 | 10:00 AM
+                Sunday, 19 JULY 2026 | 10:00 AM
               </div>
             </div>
 
@@ -224,7 +224,7 @@ export default function HaldiCeremony() {
                 wedding
                 "
               >
-                19 JULY 2026 | 01:37 PM
+                Sunday, 19 JULY 2026 | 01:37 PM
               </div>
 
             </div>
